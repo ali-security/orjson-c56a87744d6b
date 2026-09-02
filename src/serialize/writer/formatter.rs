@@ -244,7 +244,7 @@ pub trait Formatter {
     where
         W: ?Sized + io::Write + WriteExt,
     {
-        debug_assert_has_capacity!(writer);
+        reserve_minimum!(writer);
         unsafe {
             writer.write_reserved_punctuation(b'}').unwrap();
         }
